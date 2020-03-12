@@ -1,0 +1,5 @@
+package opcua
+
+func InitOpcUaClient() {
+
+}

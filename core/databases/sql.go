@@ -3,12 +3,9 @@ package databases
 import (
 	"database/sql"
 	"log"
-	"sync"
 
 	_ "github.com/siddontang/go-mysql/driver"
 )
-
-var once sync.Once
 
 type MySQLClient struct {
 	dsn      string
@@ -18,7 +15,7 @@ type MySQLClient struct {
 var clients map[string]*MySQLClient
 
 // "user:password@tcp(127.0.0.1:3306)/hello"
-func Connect(dsn string) *MySQLClient {
+func SqlConnect(dsn string) *MySQLClient {
 	client, ok := clients[dsn]
 
 	if !ok {
